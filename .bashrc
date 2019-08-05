@@ -53,4 +53,22 @@ shopt -s no_empty_cmd_completion
 export LANG=ja_JP.UTF-8
 export PAGER="lv -c "
 
+# for fzf setup
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# for source management, Ctrl+g
+# https://qiita.com/hidache/items/7dbf0eba2f36f5e1a447
+function ghql() {
+  local selected_file=$(ghq list --full-path | fzf)
+  if [ -n "$selected_file" ]; then
+    if [ -t 1 ]; then
+      echo ${selected_file}
+      cd ${selected_file}
+      pwd
+    fi
+  fi
+}
+
+# もとは201だが、日本語入力できなくなるので0を足した
+bind -x '"\2010": ghql'
+bind '"\C-g":"\2010\C-m"'
