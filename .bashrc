@@ -52,6 +52,8 @@ shopt -s no_empty_cmd_completion
 
 export LANG=ja_JP.UTF-8
 export PAGER="lv -c "
+export VIMRUNTIME=~/squashfs-root/usr/share/nvim/runtime/
+
 
 # for fzf setup
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
