@@ -1,3 +1,7 @@
+
+" 横分割時にずれるのを防ぐ(PuTTY)
+set ambiwidth=double
+
 if &compatible
  set nocompatible
 endif
