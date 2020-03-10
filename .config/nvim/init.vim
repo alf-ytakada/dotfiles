@@ -27,6 +27,9 @@ if dein#load_state('~/.cache/dein')
  " perl
  call dein#add("c9s/perlomni.vim")
 
+ " カーソル移動
+ call dein#add("easymotion/vim-easymotion")
+
  call dein#end()
  call dein#save_state()
 endif
