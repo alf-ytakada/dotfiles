@@ -65,6 +65,7 @@ set smarttab
 set shiftround
 
 set mouse=a
+set guicursor=
 
 au BufNewFile,BufRead *.psgi,*.t,*.pm,*.pl set filetype=perl noexpandtab
 
