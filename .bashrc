@@ -30,6 +30,9 @@ alias gs="git status"
 alias gc="git commit -m"
 alias gd="git diff"
 alias ga="git add"
+alias gco="git checkout"
+alias gb="git branch"
+
 
 shopt -u histappend   # .bash_history追記モードは不要なのでOFFに
 
@@ -51,8 +54,6 @@ fi
 shopt -s no_empty_cmd_completion
 
 export LANG=ja_JP.UTF-8
-export PAGER="lv -c "
-export VIMRUNTIME=~/squashfs-root/usr/share/nvim/runtime/
 
 
 # for fzf setup
