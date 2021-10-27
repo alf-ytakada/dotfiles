@@ -75,3 +75,9 @@ function ghql() {
 # もとは201だが、日本語入力できなくなるので0を足した
 bind -x '"\2010": ghql'
 bind '"\C-g":"\2010\C-m"'
+
+alias k="kubectl"
+. <(kubectl completion bash)
+complete -o default -F __start_kubectl k
+alias i="istioctl"
+. <(istioctl completion bash)
