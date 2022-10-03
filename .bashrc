@@ -1,18 +1,22 @@
 PS1="[\[\033[35m\]\u \[\033[31m\]\h \[\033[36;1;4m\]\w\[\033[0m\]]\n\$ "
 
+# 8系のmysqldumpで5系をdumpするために必要
+alias mysqldump='mysqldump --skip-column-statistics'
+
 alias ls='ls -F'
 alias sl='ls -F'
 alias ll='ls -lF'
-alias lt='ll -t'
 alias lls='ll -rSh'
 alias llh='ll -h'
-alias lr='ll -rt'
 
 alias w='w | sort'
 alias l=ll
 alias cdo='cd $OLDPWD'
 alias dfh='df -h'
 
+alias llt='ll -t'
+alias lt='ll -rt'
+alias llh='ll -h'
 alias rmb='rm *~'
 
 alias grep='grep --colour=auto'
@@ -24,16 +28,24 @@ alias ffmpeg="ffmpeg -hide_banner"
 
 alias delcom='sed -e "/^#/d; /^$/d;"'
 
+alias lsip='lsof -i -n -P'
 alias v="vim"
 alias nv="nvim"
 alias gs="git status"
+alias gsl="git status | less"
 alias gc="git commit -m"
+alias gco="git checkout"
 alias gd="git diff"
 alias ga="git add"
-alias gco="git checkout"
 alias gb="git branch"
+alias gp="git pull --prune"
+alias gpu="git push"
+alias gdel="git branch --merged|egrep -v '\*|dev|stg|qa|prd|main|master'|xargs git branch -d"
 
+alias d="docker"
+alias dc="docker compose"
 
+alias dig="dig +noall +answer"
 shopt -u histappend   # .bash_history追記モードは不要なのでOFFに
 
 HISTSIZE=1000000
