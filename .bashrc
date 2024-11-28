@@ -46,6 +46,10 @@ alias d="docker"
 alias dc="docker compose"
 
 alias dig="dig +noall +answer"
+
+alias jqjson="jq -r -R 'fromjson? // .'"
+alias airjson="air | jq  --unbuffered  -R -r 'fromjson? // .' |  sed -u -e \"s/\\\\\\n/\n/g;s/\\\\\\t/\t/g\" | sed -u -E 's|^\\t.+ghq(/[a-zA-Z0-9._-]+)+|\\x1b[1;37;41m&\\x1b[0m|g'"
+
 shopt -u histappend   # .bash_history追記モードは不要なのでOFFに
 
 HISTSIZE=1000000
