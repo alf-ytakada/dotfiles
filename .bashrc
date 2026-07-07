@@ -30,7 +30,6 @@ alias delcom='sed -e "/^#/d; /^$/d;"'
 
 alias lsip='lsof -i -n -P'
 alias v="vim"
-alias nv="nvim"
 alias gs="git status"
 alias gsl="git status | less"
 alias gc="git commit -m"
@@ -40,12 +39,15 @@ alias ga="git add"
 alias gb="git branch"
 alias gp="git pull --prune"
 alias gpu="git push"
-alias gdel="git branch --merged|egrep -v '\*|dev|stg|qa|prd|main|master'|xargs git branch -d"
+alias gdel="git branch --merged|egrep -v '^(\* .*|dev|stg|qa|prd|main|master)$'|xargs git branch -d"
 
 alias d="docker"
 alias dc="docker compose"
 
 alias dig="dig +noall +answer"
+alias clip="iconv -t utf16 |  clip.exe"
+alias csv="column -t -s, "
+alias g="glow -p -w 150"
 
 alias jqjson="jq -r -R 'fromjson? // .'"
 alias airjson="air | jq  --unbuffered  -R -r 'fromjson? // .' |  sed -u -e \"s/\\\\\\n/\n/g;s/\\\\\\t/\t/g\" | sed -u -E 's|^\\t.+ghq(/[a-zA-Z0-9._-]+)+|\\x1b[1;37;41m&\\x1b[0m|g'"
@@ -70,6 +72,8 @@ fi
 shopt -s no_empty_cmd_completion
 
 export LANG=ja_JP.UTF-8
+export PAGER="less -R"
+export LESSCHARSET=utf-8
 
 
 # for fzf setup
@@ -95,5 +99,5 @@ bind '"\C-g":"\2010\C-m"'
 alias k="kubectl"
 . <(kubectl completion bash)
 complete -o default -F __start_kubectl k
-alias i="istioctl"
-. <(istioctl completion bash)
+# alias i="istioctl"
+# . <(istioctl completion bash)
